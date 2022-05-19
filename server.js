@@ -1,32 +1,30 @@
 const { response } = require('express');
 const express = require('express');
 const app = express();
-const budgets = require('./models/budgets');
+const budget = require('./models/budgets');
 app.use(express.static('public'));
 
 app.get('/', (request, response) => {
 response.send('Welcome to Budgetr')
 });
 
+//Index
 app.get('/budgets', (request, response) => {
-    response.send('budgets')
-})
+    response.render('index.ejs', {allBudget: budget})
+});
+
+//New
+app.get('/budgets/:index', (request, response) => {
+    response.send(budget[request.params.index])
+    });
+
+    //Post
+    app.post('/budgets', (request, response) => {
+        response.send('sup')
+    });
 
 
-// app.get('/budgets/:index', (request, response) => {
-//     response.send('budgets_show.ejs', {budget: budgets[request.params.index]
-//     });
-// });
-
-// app.get('/budgets/new', (request, response) => {
-//     response.render('new.ejs')
-// });
-
-// app.post('/budgets', (request, response) => {
-//     if (request.body.)
-// })
-
-console.log(budgets)
+console.log(budget)
     
     app.listen(3000, () => {
         console.log('Listening on 3000')
