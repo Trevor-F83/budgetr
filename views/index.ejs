@@ -17,12 +17,13 @@
         <td><% for (let index = 0; index < allBudget.length; index++) { %></td>
         <table>
             <p>
-                <td><%= allBudget[index].date; %></td>
-                <td><a href='/budgets/<%= index %>'> <%= allBudget[index].name; %></a></td>
-                <td><%= allBudget[index].amount; %></td>
+                <td><%= allBudget[index].date %></td>
+                <td><a href='/budgets/<%= index %>'> <%= allBudget[index].name %> </a></td>
+                <td><%= allBudget[index].amount %></td>
+                <td><%= allBudget[index].from %></td>
+                <td><%= allBudget[index].tags %></td>
             </p>
-           <%}
-           %> 
+           <% } %> 
             
         </table>
     </div>
